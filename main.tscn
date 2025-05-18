@@ -1,0 +1,150 @@
+[gd_scene load_steps=9 format=3 uid="uid://cl8mptufo1r1g"]
+
+[ext_resource type="PackedScene" uid="uid://b2nwscse46m0b" path="res://addons/LightSensor3D/LightSensor3D.tscn" id="1_ig7tw"]
+
+[sub_resource type="Environment" id="Environment_ig7tw"]
+ambient_light_source = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7dm0k"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7dm0k"]
+
+[sub_resource type="Animation" id="Animation_0xm2m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LightSensor3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.5, -4)]
+}
+
+[sub_resource type="Animation" id="Animation_ig7tw"]
+resource_name = "walk"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LightSensor3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.5, -4), Vector3(4, 0.5, 0), Vector3(0, 0.5, 4), Vector3(-4, 0.5, 0), Vector3(0, 0.5, -4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h2yge"]
+_data = {
+&"RESET": SubResource("Animation_0xm2m"),
+&"walk": SubResource("Animation_ig7tw")
+}
+
+[sub_resource type="GDScript" id="GDScript_ig7tw"]
+script/source = "extends ColorRect
+
+
+func _on_light_sensor_3d_reading_updated(reading: Color) -> void:
+	color = reading
+"
+
+[node name="Main" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ig7tw")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+light_energy = 4.0
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 0)
+light_color = Color(1, 0, 1, 1)
+omni_range = 2.0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)
+light_color = Color(1, 1, 0, 1)
+omni_range = 2.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 0)
+light_color = Color(0, 1, 1, 1)
+omni_range = 2.0
+
+[node name="Node3D" type="Node3D" parent="Node3D"]
+
+[node name="MeshInstance3D-0" type="MeshInstance3D" parent="Node3D/Node3D"]
+transform = Transform3D(16, 0, 0, 0, 2, 0, 0, 0, 8, 0, 0, 0)
+mesh = SubResource("PlaneMesh_7dm0k")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D-1" type="MeshInstance3D" parent="Node3D/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, -1.9942, 1.00858, -0.00389707)
+mesh = SubResource("BoxMesh_7dm0k")
+skeleton = NodePath("../MeshInstance3D-0")
+
+[node name="MeshInstance3D-2" type="MeshInstance3D" parent="Node3D/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 2.0058, 1.00858, -0.00389707)
+mesh = SubResource("BoxMesh_7dm0k")
+skeleton = NodePath("../MeshInstance3D-0")
+
+[node name="MeshInstance3D-3" type="MeshInstance3D" parent="Node3D/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0.00579977, 1.00858, 1.9961)
+mesh = SubResource("BoxMesh_7dm0k")
+skeleton = NodePath("../MeshInstance3D-0")
+
+[node name="MeshInstance3D-4" type="MeshInstance3D" parent="Node3D/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0.00579977, 1.00858, -2.0039)
+layers = 3
+mesh = SubResource("BoxMesh_7dm0k")
+skeleton = NodePath("../MeshInstance3D-0")
+
+[node name="LightSensor3D" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -4)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_h2yge")
+}
+autoplay = "walk"
+speed_scale = 0.25
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -198.0
+offset_top = -198.0
+offset_right = -70.0
+offset_bottom = -70.0
+grow_horizontal = 0
+grow_vertical = 0
+script = SubResource("GDScript_ig7tw")
+
+[connection signal="reading_updated" from="LightSensor3D" to="Control/ColorRect" method="_on_light_sensor_3d_reading_updated"]

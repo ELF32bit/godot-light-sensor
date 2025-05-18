@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2nwscse46m0b"]
+
+[ext_resource type="Script" uid="uid://bi2cilcdcvafg" path="res://addons/LightSensor3D/LightSensor3D.gd" id="1_6edq6"]
+[ext_resource type="ArrayMesh" uid="uid://cl4t11t366eoj" path="res://addons/LightSensor3D/LightSensor3D.obj" id="2_gk2kr"]
+[ext_resource type="Material" uid="uid://r3orr0vc5juk" path="res://addons/LightSensor3D/LightSensor3D.tres" id="3_id6md"]
+
+[node name="LightSensor3D" type="Node3D"]
+script = ExtResource("1_6edq6")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+gui_disable_input = true
+positional_shadow_atlas_size = 256
+size = Vector2i(32, 32)
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="SubViewport"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D"]
+layers = 512
+cast_shadow = 0
+ignore_occlusion_culling = true
+gi_mode = 0
+mesh = ExtResource("2_gk2kr")
+skeleton = NodePath("../Camera3D")
+surface_material_override/0 = ExtResource("3_id6md")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D"]
+transform = Transform3D(0.707107, -0.707107, -3.09086e-08, 0, -4.37114e-08, 1, -0.707107, -0.707107, -3.09086e-08, 0, 0.55, 0)
+projection = 1
+size = 0.707107
+far = 3.44
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="."]
+remote_path = NodePath("../SubViewport/Node3D")
+update_scale = false
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
