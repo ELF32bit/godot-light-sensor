@@ -2,6 +2,7 @@
 @icon("LightSensor3D.svg")
 extends Node3D
 
+# turn off this layer on cameras to hide gizmo
 const RENDER_LAYER: int = 10
 
 signal reading_updated(reading: Color)

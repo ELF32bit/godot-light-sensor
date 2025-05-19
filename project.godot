@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="LightSensor3D Plugin"
-run/main_scene="uid://cl8mptufo1r1g"
-config/features=PackedStringArray("4.4", "Mobile")
+run/main_scene="res://main.tscn"
+config/features=PackedStringArray("4.0", "Mobile")
 
 [editor_plugins]
 

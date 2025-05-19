@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b2nwscse46m0b"]
 
-[ext_resource type="Script" uid="uid://bi2cilcdcvafg" path="res://addons/LightSensor3D/LightSensor3D.gd" id="1_6edq6"]
+[ext_resource type="Script" path="res://addons/LightSensor3D/LightSensor3D.gd" id="1_6edq6"]
 [ext_resource type="ArrayMesh" uid="uid://cl4t11t366eoj" path="res://addons/LightSensor3D/LightSensor3D.obj" id="2_gk2kr"]
 [ext_resource type="Material" uid="uid://r3orr0vc5juk" path="res://addons/LightSensor3D/LightSensor3D.tres" id="3_id6md"]
 
