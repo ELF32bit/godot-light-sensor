@@ -1,5 +1,8 @@
 @tool
+@icon("LightSensor3D.svg")
 extends Node3D
+
+const RENDER_LAYER: int = 10
 
 signal reading_updated(reading: Color)
 
@@ -22,6 +25,7 @@ var reading := Color.WHITE
 
 
 func _ready() -> void:
+	mesh_instance.set_layer_mask_value(RENDER_LAYER, true)
 	radius = radius # updating dependant nodes
 	_on_visibility_changed() # updating subviewport update mode
 
