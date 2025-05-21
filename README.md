@@ -5,6 +5,8 @@ LightSensor3D plugin provides a way to sample environment lighting in 3D scenes.
 This can be useful for stealth games where the player can hide in the shadows.<br>
 Another application might involve tinting 2D UI elements like FPS weapons.<br>
 
+#### [Available in Godot Asset Library](https://godotengine.org/asset-library/asset/4037)
+
 ## Usage
 * Drop **LightSensor3D.tscn** in your scene.
 * Reserve render layer for the plugins gizmo.
