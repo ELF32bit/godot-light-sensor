@@ -8,7 +8,6 @@ Another application might involve tinting 2D UI elements like FPS weapons.<br>
 #### [Available in Godot Asset Library](https://godotengine.org/asset-library/asset/4037)
 
 ## Usage
-* Drop **LightSensor3D.tscn** in your scene.
 * Reserve render layer for the plugins gizmo.
 * Disable gizmo render layer on the scene cameras.
 * Adjust plugin configuration inside **LightSensor3D.gd**.
