@@ -16,7 +16,6 @@ render_target_update_mode = 4
 [node name="Node3D" type="Node3D" parent="SubViewport"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D"]
-layers = 512
 cast_shadow = 0
 ignore_occlusion_culling = true
 gi_mode = 0

@@ -26,6 +26,7 @@ var reading := Color.WHITE
 
 
 func _ready() -> void:
+	mesh_instance.layers = 0 # disabling all layers
 	mesh_instance.set_layer_mask_value(RENDER_LAYER, true)
 	radius = radius # updating dependant nodes
 	_on_visibility_changed() # updating subviewport update mode
