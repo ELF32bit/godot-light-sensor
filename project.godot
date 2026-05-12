@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.0", "Mobile")
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/LightSensor3D/plugin.cfg")
+enabled=PackedStringArray("res://addons/LightSensor3D-class/plugin.cfg", "res://addons/LightSensor3D-scene/plugin.cfg")
 
 [rendering]
 

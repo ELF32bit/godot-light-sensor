@@ -43,7 +43,7 @@ func _process(delta: float) -> void:
 			var image := viewport_texture.get_image()
 			if image:
 				image.resize(1, 1, Image.INTERPOLATE_LANCZOS)
-				reading = image.get_pixel(0, 0) * sqrt(2.1) # magic number
+				reading = image.get_pixel(0, 0) * 1.449 # magic number
 				reading = reading.clamp(Color.BLACK, Color.WHITE)
 				reading_updated.emit(reading)
 

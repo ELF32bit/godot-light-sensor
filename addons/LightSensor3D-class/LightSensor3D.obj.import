@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cl4t11t366eoj"
+path="res://.godot/imported/LightSensor3D.obj-826ba04cd896d5f564ad707a34a3d019.mesh"
+
+[deps]
+
+files=["res://.godot/imported/LightSensor3D.obj-826ba04cd896d5f564ad707a34a3d019.mesh"]
+
+source_file="res://addons/LightSensor3D-class/LightSensor3D.obj"
+dest_files=["res://.godot/imported/LightSensor3D.obj-826ba04cd896d5f564ad707a34a3d019.mesh", "res://.godot/imported/LightSensor3D.obj-826ba04cd896d5f564ad707a34a3d019.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

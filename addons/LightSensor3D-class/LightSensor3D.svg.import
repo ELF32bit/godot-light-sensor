@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://2eea6t8w8tu1"
-path="res://.godot/imported/LightSensor3D.svg-5978b0035a9c336d30c3c1064edb18c3.ctex"
+path="res://.godot/imported/LightSensor3D.svg-757b657919a4ff6320f5295d67ff41b8.ctex"
 metadata={
 "editor_dark_theme": true,
 "editor_scale": 1.0,
@@ -13,8 +13,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/LightSensor3D/LightSensor3D.svg"
-dest_files=["res://.godot/imported/LightSensor3D.svg-5978b0035a9c336d30c3c1064edb18c3.ctex"]
+source_file="res://addons/LightSensor3D-class/LightSensor3D.svg"
+dest_files=["res://.godot/imported/LightSensor3D.svg-757b657919a4ff6320f5295d67ff41b8.ctex"]
 
 [params]
 
